@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/about.css') }}" />
+{% endblock %}
+
+{% block body %}
+
+<div class="jumbotron jumbotron-fluid gradient text-white">
+    <div class="container">
+        <h1 class="display-4">Foire aux questions</h1>
+        <p class="lead">Retrouvez sur cette page, les questions les plus récurentes que se posent nos clients.</p>
+    </div>
+</div>
+
+<div class="row border-bottom px-3 px-lg-5 pb-3 pb-lg-5">
+    <div class="col">
+        <div class="container">
+            <p>Note : Le terme <strong>application</strong> désigne ici, site web, application web, application mobile,
+                application de bureau et n'importe quel autre service de conception de nucleus.</p>
+            <h2 class="font-regular mt-3 mt-lg-5">Combien coûte une application ?</h2>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <p class="display-5">
+                        Le coût d'une application est très variable allant de 500€ à 20.000€.
+                        Tout dépend des fonctionnalités que comportent votre application. Pour avoir
+                        un prix net et être fixé, vous pouvez demander un devis gratuitement dans votre
+                        tableau de bord ou sur notre page d'accueil en cliquant sur le bouton "Demander un devis".
+                    </p>
+                </div>
+            </div>
+            <h2 class="font-regular mt-3 mt-lg-5">Quelles sont les modalités de paiement ?</h2>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <p>
+                        Nucleus propose à ses clients de payer en plusieurs tranches dès que le coût de leur
+                        application est jugé légèrement suppérieur à la moyenne.
+                        Toute modalité de payement peut être négociée avec notre service client.
+                        Généralement, pour une somme avoisinant les 1000€, le client peut payer en deux tranches.
+                        Pour un coût avoisinant 5000€, le client peut payer en trois tranches. Et plus le montant
+                        augmente, plus le nombre de tranche augmente proportionnellement.
+                    </p>
+                </div>
+            </div>
+            <h2 class="font-regular mt-3 mt-lg-5">Quels sont les moyens de paiement ?</h2>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <p class="display-5">
+                        Nucleus est une entreprise francaise basée au TOGO. En tenant compte de la situation
+                        géographique
+                        de l'entreprise, les moyens de paiement accessibles et fonctionnels sont
+                        <strong>MoneyGram</strong> et <strong>Western Union</strong>.
+                    </p>
+                </div>
+            </div>
+            <h2 class="font-regular mt-3 mt-lg-5">Déroulement du paiement</h2>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <p class="display-5">
+                        Lorsqu'un devis vous est envoyé et que vous le signez, vous démarrez un projet. À chaque étape
+                        du projet (conception de l'application),
+                        correspond un montant à payer en fonction de l'accord de modalités convenu avec notre service
+                        client. Vous pouvez aussi si vous le souhaitez régler
+                        toute la somme en même temps.
+                        Pour payer, vous enverrez l'argent par MoneyGram ou Western Union au nom de Messanvi Ayi
+                        Géoffroy, vous nous communiquerez les informations de la transaction et les garderez jalousement
+                        en cas de réclamation.
+                    </p>
+                </div>
+            </div>
+            <h2 class="font-regular mt-3 mt-lg-5">Frais de transaction</h2>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <p class="display-5">
+                        Tous les frais de transactions seront à nos comptes et débités sur le montant que vous envoyez. Si vous envoyez par exemple 70€ et que les frais
+                        d'envoi sont de 10€, vous enverrez donc 60€ + 10€ de frais et non 80€.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

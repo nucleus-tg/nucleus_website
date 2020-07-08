@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Google icons font -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google icons font -->
+    <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body class="white">
+    <header>
+        <ul id="slide-out" class="sidenav sidenav-fixed">
+            <li>
+                <div class="user-view">
+                    <div class="background">
+                        <img src="{{ asset('img/office.jpg') }}">
+                    </div>
+                    <a href="#user"><img class="circle" src="{{ asset('img/avatar.jpeg') }}"></a>
+                    <a href="#name"><span
+                            class="white-text name">{{ app.user.firstName~" "~app.user.lastName }}</span></a>
+                    <a href="#email"><span class="white-text email">{{ app.user.email }}</span></a>
+                </div>
+            </li>
+            <li>
+                <a href="{{ path('default') }}">
+                    <img src="{{ asset('img/nucleus.png') }}" width="30" style="margin-right: 20px;position: relative;top: 10px;" />
+                    Nucleus
+                </a>
+            </li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li><a href="{{ path('dashboard') }}"><i class="material-icons">home</i> Accueil</a></li>
+            <li><a href="{{ path('devis_by_user',{id: app.user.id}) }}"><i class="material-icons">functions</i> Mes
+                    devis</a></li>
+            <li><a href="{{ path('projects_by_user',{id: app.user.id}) }}"><i class="material-icons">next_week</i> Mes
+                    projets</a></li>
+            <li><a href="#!"><i class="material-icons">receipt_long</i> Mes factures</a></li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li><a href="#!"><i class="material-icons">notifications</i> Notifications</a></li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li><a href="{{ path('app_logout') }}"><i class="material-icons">power_settings_new</i> Déconnexion</a></li>
+        </ul>
+    </header>
+
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+
+    <footer></footer>
+
+    <!-- Minified Jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".dropdown-trigger").dropdown();
+            $('.sidenav').sidenav();
+            $('.tap-target').tapTarget();
+            $('.modal').modal();
+        });
+    </script>
+    {% block javascripts %}{% endblock %}
+</body>
+
+</html>

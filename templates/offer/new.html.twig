@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Devis{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/new_devis.css') }}" />
+{% endblock %}
+
+{% block body %}
+<div class="jumbotron jumbotron-fluid gradient text-white">
+    <div class="container">
+        <h1 class="display-4">Commander un pack</h1>
+        <p class="lead">Nous avons besoin de quelques informations pour traiter votre demande.</p>
+    </div>
+</div>
+
+<div class="row border-bottom px-3 px-lg-5 py-lg-3" id="app">
+    <div class="col">
+        {{ include('offer/_form.html.twig') }}
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="{{ asset('js/devis_app.js') }}"></script>
+{% endblock %}

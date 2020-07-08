@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Devis{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/new_devis.css') }}" />
+{% endblock %}
+
+{% block body %}
+<div class="jumbotron jumbotron-fluid gradient text-white">
+    <div class="container">
+        <h1 class="display-4">Demander un devis</h1>
+        <p class="lead">Remplissez le formulaire de demande de devis suivant et nous vous enverrons votre devis par mail
+            dans les plus bref delais.</p>
+    </div>
+</div>
+
+<div class="row border-bottom px-3 px-lg-5 py-lg-3" id="app">
+    <div class="col-lg-8 col-md-12">
+        {{ include('devis/_form.html.twig') }}
+    </div>
+    <div class="col-lg-4 col-sm-12 border rounded bg-light p-4">
+        <h6>{{ "Projet : {{ name }}" }}</h6>
+        <hr/>
+        <p>
+            <strong>Budget : </strong>
+            <span>{{ "{{ minb }}€ - " }}</span>
+            <span>{{ "{{ maxb }}€" }}</span>
+        </p>
+        <p>
+            <strong>Contact : </strong>
+            <span>{{ "{{ email }}" }}</span>
+        </p>
+        <p>
+            <strong>Description</strong>
+            <p>{{ "{{ description }}" }}</p>
+        </p>
+        <p>
+            <strong>Besoins</strong>
+            <p>{{ "{{ needs }}" }}</p>
+        </p>
+        <p>
+            <strong>Exigences</strong>
+            <p>{{ "{{ requirements }}" }}</p>
+        </p>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="{{ asset('js/devis_app.js') }}"></script>
+{% endblock %}

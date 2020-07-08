@@ -1,0 +1,106 @@
+{% extends 'materialbase.html.twig' %}
+
+{% block title %}Devis index{% endblock %}
+
+{% block stylesheets %}
+<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+{% endblock %}
+
+{% block body %}
+
+<!-- Modal Structure -->
+<div id="modalCantConvert" class="modal">
+    <div class="modal-content">
+        <h4>Devis</h4>
+        <p>Vous ne pouvez pas encore convertir ce devis en projet car le traitement de ce dernier est toujours
+            en cours.Veuillez patienter le temps que nous traitions votre devis.
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Compris</a>
+    </div>
+</div>
+
+<div style="padding-left: 30px;padding-right: 30px;">
+
+    {% if (devis | length) > 0 %}
+    <div class="row">
+        <div class="col s12">
+            <h4 class="light">
+                Liste de vos projets
+                <a href="{{ path('devis_new') }}" class="right btn">Nouveau</a>
+            </h4>
+            <div class="divider"></div>
+            {% for flashMessage in app.session.flashbag.get('devis-success') %}
+            <div class="alert alert-success" role="alert">
+                {{ flashMessage }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="row">
+        {% for devi in devis %}
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col l6 m6 s12">
+                            <span class="card-title grey-text text-darken-4">
+                                {{ devi.name }}
+                            </span>
+                            <p><a href="#" class="grey-text text-darken-4">{{ devi.description }}</a></p>
+                        </div>
+                        <div class="col l6 m6 s12">
+                            <span class="card-title grey-text text-darken-4">Tâches réalisées</span>
+                            <div>
+                                {% for t in devi.todos %}
+                                <p>
+                                    <label>
+                                        {% if t.isFinished %}
+                                        <input type="checkbox" class="filled-in" checked="checked" disabled />
+                                        {% else %}
+                                        <input type="checkbox" class="filled-in" disabled />
+                                        {% endif %}
+                                        <span>{{ t.name }}</span>
+                                        {% if t.price > 0 %}
+                                        <span class="badge blue-text">{{ t.price }}€ </span>
+                                        {% endif %}
+                                    </label>
+                                </p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-action">
+
+                    {% if devi.progress == 100 %}
+                    <span class="badge teal white-text">Traité...</span>
+                    {% else %}
+                    <span class="badge amber darken-3 white-text">En cours de réalisation...</span>
+                    {% endif %}
+
+                    <a href="#" class="grey-text text-darken-2">PROGRESSION :
+                        {{ devi.progress is not null ? devi.progress : 0 }} %</a>
+
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <p class="center" style="margin-top: 80px;">
+            <img src="{{ asset('img/github-alt.png') }}" width="200" />
+        </p>
+        <h4 class="center light">Aucun projet pour le moment!</h4>
+        <p class="center">
+            Vous n'avez encore aucun projet en cours de réalisation.
+            Pour lancer un projet,
+            <br />
+            demandez un devis et convertissez ensuite ce devis en projet.</p>
+    </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}

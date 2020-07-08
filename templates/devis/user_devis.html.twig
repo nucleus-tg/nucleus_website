@@ -1,0 +1,86 @@
+{% extends 'materialbase.html.twig' %}
+
+{% block title %}Devis index{% endblock %}
+
+{% block body %}
+
+<!-- Modal Structure -->
+<div id="modalCantConvert" class="modal">
+    <div class="modal-content">
+        <h4>Devis</h4>
+        <p>Vous ne pouvez pas encore convertir ce devis en projet car le traitement de ce dernier est toujours
+            en cours.Veuillez patienter le temps que nous traitions votre devis.
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Compris</a>
+    </div>
+</div>
+
+<div style="padding-left: 30px;padding-right: 30px;">
+
+    <div class="row">
+        <div class="col s12">
+            <h4 class="light">
+                Liste de vos devis
+                <a href="{{ path('devis_new') }}" class="right btn">Nouveau</a>
+            </h4>
+            <div class="divider"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        {% for devi in devis %}
+        <div class="col l6 m4 s12">
+            <div class="card">
+                <div class="card-content" style="min-height: 250px;">
+                    <span class="card-title activator grey-text text-darken-4">
+                        {{ devi.name }}
+                        <i class="material-icons right">more_vert</i></span>
+                    <p><a href="#" class="grey-text text-darken-4">{{ devi.description }}</a></p>
+                    <p class="black-text" style="padding: 10px 0px; font-size: 18px;">Besoins :</p>
+                    <p><a href="#" class="grey-text text-darken-4">{{ devi.needs }}</a></p>
+                    <p class="black-text" style="padding: 10px 0px; font-size: 18px;">Contraintes :</p>
+                    <p><a href="#" class="grey-text text-darken-4">{{ devi.requirements }}</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">
+                        Status : {{ devi.status ? "Traité" : "En attente"  }}
+                        <i class="material-icons right">close</i>
+                    </span>
+                    <span class="card-title grey-text text-darken-4" style="padding: 10px 0px;">Coût : {{ devi.price }}
+                        €</span>
+                    <span class="card-title grey-text text-darken-4" style="padding: 10px 0px;">Budget max :
+                        {{ devi.budgetTo }} €</span>
+                    <span class="card-title grey-text text-darken-4" style="padding: 10px 0px;">Note :</span>
+                    <p>{{ devi.note }}</p>
+                </div>
+                <div class="card-action">
+
+                    {% if devi.status %}
+                    <span class="badge teal white-text">Traité...</span>
+                    {% else %}
+                    <span class="badge amber darken-3 white-text">Traitement en cours...</span>
+                    {% endif %}
+
+                    {% if devi.isProject %}
+                    <a href="#">PROJET</a>
+                    {% else %}
+                    {% if devi.status %}
+                    <a href="{{ path('convert_to_project', {'id':devi.id}) }}">CONVERTIR EN PROJET</a>
+                    {% else %}
+                    <a class="waves-effect waves-light modal-trigger" href="#modalCantConvert">CONVERTIR EN PROJET</a>
+                    {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <tr>
+            <td colspan="7">no records found</td>
+        </tr>
+    </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}

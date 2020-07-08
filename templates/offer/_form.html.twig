@@ -1,0 +1,59 @@
+{{ form_start(form) }}
+<div class="form-group">
+    <div class="row">
+        <div class="col-lg-6 col-sm-12 pb-3 pb-lg-0">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon-name">
+                        <span class="fas fa-user"></span>
+                    </span>
+                </div>
+                {{ form_widget(form.fullName, {'attr': {'class':'form-control','aria-describedby':'basic-addon-name','placeholder':'Votre nom complet'}})
+                }}
+            </div>
+            <small class="form-text text-muted" id="basic-addon-name">
+                Ex: Dupont dupont
+            </small>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-lg-6 col-sm-12 pb-3 pb-lg-0">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon-email">
+                        <span class="fas fa-at"></span>
+                    </span>
+                </div>
+                {{ form_widget(form.email, {'attr': {'class':'form-control','aria-describedby':'basic-addon-email','placeholder':'Email de contact'}})
+                }}
+            </div>
+            <small class="form-text text-muted">
+                Nous vous enverrons votre devis à cette adresse mail
+            </small>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <div class="col-lg-6 col-sm-12 pb-3 pb-lg-0">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon-email">
+                        <span class="fas fa-phone"></span>
+                    </span>
+                </div>
+                {{ form_widget(form.phoneNumber, {'attr': {'class':'form-control','placeholder':'Numéro de téléphone'}})
+                }}
+            </div>
+            <small class="form-text text-muted">
+                Nous pourrons vous contacter sur ce numéro.
+            </small>
+        </div>
+    </div>
+</div>
+{{ form_widget(form) }}
+<button class="btn btn-success"><span class="fas fa-paper-plane"></span> Passer la commande</button>
+{{ form_end(form) }}

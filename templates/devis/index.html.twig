@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Devis index{% endblock %}
+
+{% block body %}
+    <h1>Devis index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Needs</th>
+                <th>Requirements</th>
+                <th>Budget</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for devi in devis %}
+            <tr>
+                <td>{{ devi.id }}</td>
+                <td>{{ devi.name }}</td>
+                <td>{{ devi.description }}</td>
+                <td>{{ devi.needs }}</td>
+                <td>{{ devi.requirements }}</td>
+                <td>{{ devi.budget }}</td>
+                <td>
+                    <a href="{{ path('devis_show', {'id': devi.id}) }}">show</a>
+                    <a href="{{ path('devis_edit', {'id': devi.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('devis_new') }}">Create new</a>
+{% endblock %}

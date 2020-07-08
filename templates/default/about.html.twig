@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/about.css') }}" />
+{% endblock %}
+
+{% block body %}
+
+<div class="jumbotron jumbotron-fluid gradient text-white">
+    <div class="container">
+        <h1 class="display-4">À propos de nucleus</h1>
+        <p class="lead">Entreprise informatique.</p>
+    </div>
+</div>
+
+<div class="row border-bottom px-3 px-lg-5 py-3 py-lg-5">
+    <div class="col">
+        <div class="container">
+            <h2 class="font-regular">Qui sommes nous ?</h2>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <p class="display-5">
+                        Nucleus est une entreprise informatique spécialisée dans la conception et réalisation de
+                        systèmes
+                        informatiques.
+                    </p>
+                </div>
+            </div>
+            <h2 class="font-regular">Notre mission</h2>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <p>
+                        Notre mission est d'aider les entreprises à accroître leur chiffre d'affaire grâce à leur
+                        présence
+                        numérique.
+
+                        L'informatique étant devenue omniprésent dans notre vie quotidienne, elle est un canal sûr à
+                        emprunter
+                        si
+                        nous voulons toucher beaucoup plus de monde et ainsi développer notre business de nos jours.
+
+                        Sur ce, Nucleus aide les entreprises à atteindre ce but en leur fournissant des services
+                        informatiques
+                        de
+                        qualité et à un coût très abordable.
+
+                        Ces services sont diverses et variés comme la conception de site Web, des applications mobile,
+                        des
+                        applications de gestion, le marketing digital, le SEO…
+
+                        Nucleus c'est déjà une cinqcentaine de systèmes informatiques réalisés et plus d'une centaine
+                        d'entreprises
+                        qui nous font confiances.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

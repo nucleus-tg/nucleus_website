@@ -1,0 +1,166 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/register.css') }} " />
+{% endblock %}
+
+{% block body %}
+<div class="row border-bottom">
+    <div class="col p-5 pb-0 text-white d-none d-lg-block d-xl-block gradient">
+        <div class="row">
+            <div class="col">
+                <h4 class="font-regular py-3 text-center">Les avantages d'une création de compte gratuite sur Nucleus
+                </h4>
+
+                <div id="carouselExampleCaptions" class="carousel slide mt-5" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="carousel-caption d-none d-md-block py-5 px-5">
+                                <h5>Suivi en temps réel</h5>
+                                <p>
+                                    Suivez en temps réel et en toute transparence la progression de vos projets depuis
+                                    votre tableau de bord et contactez-nous directement en cas de problèmes.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-caption d-none d-md-block py-5 px-5">
+                                <h5>Notifications</h5>
+                                <p>
+                                    Recevez des notifications instantanées relatives à vos projets depuis votre
+                                    tableau de bord dès qu'il y'a un changement effectif et recevez nos offres
+                                    promotionnelles.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-caption d-none d-md-block py-5 px-5">
+                                <h5>Promotions</h5>
+                                <p>
+                                    Retrouvez en seul endroit, vos devis, vos factures et
+                                    l'historique de vos projets et bénéficiez de multiples réductions grâce à notre
+                                    politique de
+                                    fidélisation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="font-regular py-3 text-center">Nucleus c'est déjà plus de 40.000 comptes créés.</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col p-5 pt-lg-5 pb-0">
+        <h1 class="font-regular">Inscription</h1>
+        <p>Remplissez le formulaire suivant pour vous inscrire sur nucleus et bénéficier de divers privilèges.</p>
+
+        {% for flashMessage in app.session.flashbag.get('devis-success') %}
+        <div class="alert alert-success" role="alert">
+            {{ flashMessage }}
+        </div>
+        {% endfor %}
+
+
+        {{ form_start(registrationForm) }}
+
+        {% if form_errors(registrationForm) %}
+        <div class="alert alert-danger">
+            {{ form_errors(registrationForm) }}
+        </div>
+        {% endif %}
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon-description">
+                                <span class="fas fa-user"></span>
+                            </span>
+                        </div>
+                        {{ form_widget(registrationForm.firstName, {'attr': {'class':'form-control','aria-describedby':'basic-addon-description','placeholder':'Prénom(s)'}})
+                        }}
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon-budget-from">
+                                <span class="fas fa-user"></span>
+                            </span>
+                        </div>
+                        {{ form_widget(registrationForm.lastName, {'attr': {'class':'form-control','aria-describedby':'basic-addon-budget-from','placeholder':'Nom'}})
+                        }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon-budget-from">
+                        <span class="fas fa-at"></span>
+                    </span>
+                </div>
+                {{ form_widget(registrationForm.email, {'attr': {'class':'form-control','aria-describedby':'basic-addon-budget-from','placeholder':'Email'}})
+                }}
+            </div>
+            <small class="form-text text-muted">
+                Vous utiliserez ce mail pour vous connecter.
+            </small>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon-budget-from">
+                        <span class="fas fa-lock"></span>
+                    </span>
+                </div>
+                {{ form_widget(registrationForm.password.first, {'attr': {'class':'form-control','aria-describedby':'basic-addon-budget-from','placeholder':'Mot de passe'}})
+                }}
+            </div>
+            <small class="form-text text-muted">
+                Choisissez un mot de passe.
+            </small>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon-budget-from">
+                        <span class="fas fa-lock"></span>
+                    </span>
+                </div>
+                {{ form_widget(registrationForm.password.second, {'attr': {'class':'form-control','aria-describedby':'basic-addon-budget-from','placeholder':'Confirmation'}})
+                }}
+            </div>
+            <small class="form-text text-muted">
+                Retapez le mot de passe choisi.
+            </small>
+        </div>
+
+        <div class="form-goup">
+            <div class="form-check">
+                {{ form_widget(registrationForm.agreeTerms, {'attr':{'class':'form-check-input' }} ) }}
+                <label class="form-check-label" for="registration_form_agreeTerms">
+                    J'accepte les <a href="#">termes et conditions</a> d'inscription de nucleus.
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group py-3">
+            <button type="submit" class="btn btn-success">Je m'inscris</button>
+        </div>
+        {{ form_end(registrationForm) }}
+    </div>
+</div>
+{% endblock %}

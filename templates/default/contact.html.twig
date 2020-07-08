@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/contact.css') }}" />
+{% endblock %}
+
+{% block body %}
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Contacter nucleus</h1>
+      <p class="lead">Pour nous contacter, envoyez nous un mail en remplissant le formulaire ci-dessous. Vous
+        pouvez
+        aussi nous contacter en utilisant l'une de nos <a href="">adresses</a>.</p>
+    </div>
+  </div>
+
+<div class="container">
+    <div class="row pb-5">
+        <div class="col-lg-7 mx-auto">
+            <form method="post" action="{{ path('send_contact_mail') }}">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputLastName">Nom</label>
+                        <input type="text" class="form-control" name="lastName" id="inputLastName" placeholder="Facultatif">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputFirstName">Prénom(s)</label>
+                        <input type="text" class="form-control" name="firstName" id="inputFirstName" placeholder="Facultatif">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" name="email" placeholder="exemple@domaine.ext" required="required">
+                </div>
+                <div class="form-group">
+                    <label for="inputObjet">Objet</label>
+                    <input type="text" class="form-control" id="inputObjet" name="object" placeholder="Objet du message">
+                </div>
+                <div class="form-group">
+                    <label for="inputMessage">Message</label>
+                    <textarea class="form-control" name="message" id="inputMessage" rows="3" required="required"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

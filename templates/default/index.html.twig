@@ -1,0 +1,414 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{{ parent() }} Accueil
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/product.css') }}" />
+{% endblock %}
+
+{% block body %}
+<div class="modal fade" tabindex="-1" role="dialog" id="modalStillInProgress">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Cette fonctionnalité est en cours de développement et sera disponible d'ici quelques semaines.</p>
+                <p>Merci de l'intéret que vous portez à nos services.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="row border-bottom py-5 pl-4 pr-4 pl-lg-5 gradient" style="color: #e0e0e0">
+    <div class="col-lg-6 col-sm-12 pl-lg-5 text-center text-md-left text-lg-left">
+        <h2 class="font-light">Bienvenue sur nucleus
+        </h2>
+        <h5 class="font-light">
+            Entreprise informatique.
+        </h5>
+        <p class="py-3 font-ligh"
+            style="font-size: 19px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+            Nucleus est une entrprise informatique fournissant des services de
+            qualité dans le domaine de
+            l'ingénieurie logiciel. Nous vous concevons votre site web professionnel, votre application mobile et
+            votre
+            application de bureau.</p>
+        <p style="font-size: 19px">
+            Commandez dès aujourd'hui votre application sur mesure pour votre business à partir de <span
+                class="font-bold">500€.</span>
+        </p>
+        <p>
+            <a href="{{ path('devis_new') }}" class="btn btn-lg btn-success rounded-pill border-0"
+                style="font-size: 17px;">Demander un
+                devis</a>
+            <a href="#offers" class="btn btn-lg btn-info rounded-pill border-0 ml-lg-3 mt-3 mt-md-0 mt-lg-0"
+                style="font-size: 17px;">Voir nos
+                offres</a>
+        </p>
+    </div>
+    <div class="col-md-6 pr-lg-5 text-center my-auto mx-auto d-none d-md-block d-lg-block d-xl-block">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ asset('img/firebase.png') }}" height="200px" alt="image">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('img/github.png') }}" height="200px" alt="image">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('img/android_studio.png') }}" height="200px" alt="image">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('img/flutter.png') }}" height="200px" alt="image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<span class="anchor" id="services"></span>
+<div class="row border-bottom px-5 py-3">
+    <div class="col">
+        <div class="row text-center">
+            <div class="col-lg-4">
+                <img src="{{ asset('img/android.png') }}" class="bd-placeholder-img rounded-circle" width="140"
+                    height="140" />
+                <h2>Mobile</h2>
+                <p>Des application mobiles optimisées et fonctionnelles aussi bien sur tablette que sur smartphone.
+                    Choisissez vous même la plateforme cible (<strong>Android, IOS...</strong>); à un coût défiant toute
+                    concurrence</p>
+                <p><a class="btn btn-secondary" href="#" role="button">Voir détails &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="{{ asset('img/chrome.png') }}" class="bd-placeholder-img rounded-circle"
+                    style="padding: 40px;" width="140" height="140" />
+                <h2>Web</h2>
+                <p>Des applications web et sites web sur mesure concus avec les dernières technologies approuvées du
+                    web. Commandez ces application dès aujourd'hui pour gérer votre business en ligne et bénéficiez d'un
+                    tarif exceptionnel.</p>
+                <p><a class="btn btn-secondary" href="#" role="button">Voir détails &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="{{ asset('img/ubuntu.png') }}" class="bd-placeholder-img rounded-circle" width="140"
+                    height="140" style="padding: 40px;" />
+                <h2>Desktop</h2>
+                <p>Commandez des applications de bureau pour vos besoins.
+                    Que ce soit des application de gestion de votre restaurant, du personnel, de votre finance et
+                    autres...Choisissez nucleus pour du professionnalisme
+                </p>
+                <p><a class="btn btn-secondary" href="#" role="button">Voir détails &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div>
+    </div>
+</div>
+
+<div class="row border-bottom px-3 px-lg-5 py-3">
+    <div class="col">
+        <div class="row">
+            <div class="col pl-lg-4">
+                <h3 class="font-regular pl-4 pt-4 pb-3 text-center text-lg-left">Pourquoi choisir nucleus ?</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 pl-4 pl-lg-5">
+                '<div class="media">
+                    <span class="material-icons text-white bg-primary p-3 rounded-circle">
+                        important_devices
+                    </span>
+                    <div class="media-body ml-2">
+                        <h5 class="mt-0">Qualité</h5>
+                        Un service de qualité piloté par une équipe d'ingénieurs très dynamiques.
+                    </div>
+                </div>
+
+                <div class="media mt-5">
+                    <span class="material-icons text-white bg-success p-3 rounded-circle">
+                        euro_symbol
+                    </span>
+                    <div class="media-body ml-2">
+                        <h5 class="mt-0">Tarifs</h5>
+                        Des tarifs très bas et à la portée de tous.
+                    </div>
+                </div>
+
+                <div class="media mt-5">
+                    <span class="material-icons text-white p-3 rounded-circle" style="background-color: #9c27b0;">
+                        control_camera
+                    </span>
+                    <div class="media-body ml-2">
+                        <h5 class="mt-0">Chaîne</h5>
+                        Une chaîne de développement (Tous vos services informatiques par une seule
+                        société).
+                    </div>
+                </div>
+
+                <div class="media mt-5">
+                    <span class="material-icons text-white p-3 rounded-circle" style="background-color: #1a237e;">
+                        local_phone
+                    </span>
+                    <div class="media-body ml-2">
+                        <h5 class="mt-0">Service client</h5>
+                        Un service client disponible et à votre entière disposition.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 pl-4 pt-5 pt-lg-0">
+                <div class="media">
+                    <span class="material-icons text-white p-3 rounded-circle" style="background-color: #009688;">
+                        assistant_photo
+                    </span>
+                    <div class="media-body ml-2">
+                        <h5 class="mt-0">Reconnu</h5>
+                        Une société recommandées par beaucoup d'autre entreprises.
+                    </div>
+                </div>
+
+                <div class="media mt-5">
+                    <span class="material-icons text-white p-3 rounded-circle" style="background-color: orange;">
+                        payments
+                    </span>
+                    <div class="media-body ml-2">
+                        <h5 class="mt-0">Paiement</h5>
+                        Possibilité de payer par tranche.
+                    </div>
+                </div>
+
+                <div class="media mt-5">
+                    <span class="material-icons text-white p-3 rounded-circle" style="background-color: #607d8b;">
+                        local_offer
+                    </span>
+                    <div class="media-body ml-2">
+                        <h5 class="mt-0">Promotions</h5>
+                        Des offres promotionnelles exceptionnelles.
+                    </div>
+                </div>
+
+                <div class="media mt-5">
+                    <span class="material-icons text-white bg-success p-3 rounded-circle">
+                        mediation
+                    </span>
+                    <div class="media-body ml-2">
+                        <h5 class="mt-0">Négociations</h5>
+                        Un prix flexible et négociable pour plusieurs commandes.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row border-bottom text-center bg-light">
+    <div class="col-md-6 p-5 mx-auto">
+        <h1 class="display-4 font-weight-normal">Nucleus business</h1>
+        <p class="lead font-weight-normal">Gagnez plus de 500€ en nous recommandant à vos amis.
+            Inscrivez-vous, trouvez un client et récupérez votre commission dès que le client effectue son paiement.</p>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-success rounded-pill py-3 px-4 font-bold" data-toggle="modal"
+            data-target="#modalStillInProgress">
+            Commencer
+        </button>
+        <!--
+      <a class="btn btn-success rounded-pill py-3 px-4 font-bold" href="{{ path('dashboard') }}">COMMENCER</a>
+    -->
+    </div>
+</div>
+
+<span class="anchor" id="offers"></span>
+<div class="row border-bottom px-5 py-5">
+    <div class="col-md-4 col-sm-12">
+        <div class="card h-100 shadow-sm">
+            <h5 class="card-header">Offre Starter</h5>
+            <div class="card-body">
+                <h1 class="text-success text-center">500 €</h1>
+                <h5 class="py-2">
+                    <span class="material-icons float-left pr-2">
+                        fiber_manual_record
+                    </span>
+                    Un site web vitrine
+                </h5>
+                <h5 class="py-2">
+                    <span class="material-icons float-left pr-2">
+                        fiber_manual_record
+                    </span>
+                    Hébergement inclus
+                </h5>
+                <h5 class="py-2">
+                    <span class="material-icons float-left pr-2">
+                        fiber_manual_record
+                    </span>
+                    Domaine au choix
+                </h5>
+            </div>
+            <div class="card-footer text-muted">
+                <a href="{{ path('offer_new',{type: 1}) }}" class="btn btn-primary w-100">Commander</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12 mt-4 mt-lg-0 mt-md-0">
+        <div class="card border-success h-100 shadow-sm">
+            <h5 class="card-header">Offre Pro <span class="badge badge-pill badge-warning float-right">Best
+                    seller</span></h5>
+            <div class="card-body">
+                <h1 class="text-success text-center">1200 €</h1>
+                <h5 class="py-2">
+                    <span class="material-icons float-left pr-2">
+                        fiber_manual_record
+                    </span>
+                    Site web professionnel avancé
+                </h5>
+                <h5 class="py-2">
+                    <span class="material-icons float-left pr-2">
+                        fiber_manual_record
+                    </span>
+                    Un espace d'administration
+                </h5>
+                <h5 class="py-2">
+                    <span class="material-icons float-left pr-2">
+                        fiber_manual_record
+                    </span>
+                    Hébergement inclus
+                </h5>
+                <h5 class="py-2">
+                    <span class="material-icons float-left pr-2">
+                        fiber_manual_record
+                    </span>
+                    Domaine au choix
+                </h5>
+                <h5 class="py-2">
+                    <span class="material-icons float-left pr-2">
+                        fiber_manual_record
+                    </span>
+                    Une application mobile
+                </h5>
+            </div>
+            <div class="card-footer text-muted">
+                <a href="{{ path('offer_new',{type: 2}) }}" class="btn btn-primary w-100">Commander</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12 mt-4 mt-lg-0 mt-md-0">
+        <div class="card h-100 shadow-sm">
+            <h5 class="card-header">Offre Business</h5>
+            <div class="card-body">
+                <h1 class="text-success text-center">2500 €</h1>
+                <h5 class="py-2">
+                    <span class="material-icons float-left pr-2">
+                        fiber_manual_record
+                    </span>
+                    Avantages de l'offre pro
+                </h5>
+                <h5 class="py-2">
+                    <span class="material-icons float-left pr-2">
+                        fiber_manual_record
+                    </span>
+                    Une application de bureau
+                </h5>
+                <h5 class="py-2">
+                    <span class="material-icons float-left pr-2">
+                        fiber_manual_record
+                    </span>
+                    Un logo
+                </h5>
+                <h5 class="py-2">
+                    <span class="material-icons float-left pr-2">
+                        fiber_manual_record
+                    </span>
+                    Une page facebook
+                </h5>
+            </div>
+            <div class="card-footer text-muted">
+                <a href="{{ path('offer_new',{type: 3}) }}" class="btn btn-primary w-100">Commander</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row border-bottom text-center bg-light">
+    <div class="col-md-12 p-5 mx-auto">
+        <h1 class="font-weight-normal">Ils nous font confiance</h1>
+        <p class="lead font-weight-normal">Les structures suivantes nous font confiance.</p>
+        <div class="row center-text pt-4 pb-5">
+            <div class="col">
+                <span>
+                    <img src="{{ asset('img/pxshop_logo_square.png') }}" class="rounded-circle" height="60" />
+                </span>
+                <span class="pl-4">
+                    <img src="{{ asset('img/logo_church_app.png') }}" class="bg-white" height="60" />
+                </span>
+                <span class="pl-4">
+                    <img src="{{ asset('img/kokolyx.png') }}" class="rounded-circle" height="60" />
+                </span>
+                <span class="pl-4">
+                    <img src="{{ asset('img/logo_hi.png') }}" class="rounded-circle" height="60" />
+                </span>
+                <span class="pl-4">
+                    <img src="{{ asset('img/pxshop_mobile_splash_logo.png') }}" class="rounded-circle" height="60" />
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; top: 80px; right: 10px;">
+    <div class="toast-header">
+        <img src="{{ asset('img/nucleus.png') }}" width="40" class="rounded mr-2" alt="...">
+        <strong class="mr-auto">Félicitations!</strong>
+        <small>Maintenant</small>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-body">
+        Votre commande a bien été enregistrée.
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (!Notification) {
+            alert('Desktop notifications not available in your browser. Try Chromium.');
+            return;
+        }
+
+        if (Notification.permission !== 'granted')
+            Notification.requestPermission();
+    });
+
+
+    function notifyMe(title, message) {
+        if (Notification.permission !== 'granted')
+            Notification.requestPermission();
+        else {
+            var notification = new Notification(title, {
+                icon: '{{ asset("img/nucleus.png") }}',
+                body: message,
+            });
+            notification.onclick = function () {
+                window.open('http://stackoverflow.com/a/13328397/1269037');
+            };
+        }
+    }
+</script>
+
+{% set flash = app.session.flashbag.get('offer-success') %}
+{% if flash|length > 0 %}
+<script id="script-tag">
+    $(function () {
+        $('.toast').toast({
+            delay: 5000
+        }).show();
+        $('.toast').toast('show');
+        notifyMe("Félicitations!", "{{ flash['0'] }}");
+    });
+</script>
+{% set flash = null %}
+{% endif %}
+
+{% endblock %}

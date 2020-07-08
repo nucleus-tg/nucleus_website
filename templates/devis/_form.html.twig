@@ -1,0 +1,110 @@
+{{ form_start(form) }}
+<div class="form-group">
+    <div class="row">
+        <div class="col-lg-6 col-sm-12 pb-3 pb-lg-0">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon-name">
+                        <span class="fas fa-puzzle-piece"></span>
+                    </span>
+                </div>
+                {{ form_widget(form.name, {'attr': {'class':'form-control','aria-describedby':'basic-addon-name','placeholder':'Nom du projet','v-model':'name'}})
+                }}
+            </div>
+            <small class="form-text text-muted" id="basic-addon-name">
+                Ex: Création d'un site e-commerce
+            </small>
+        </div>
+        <div class="col-lg-6 col-sm-12 pb-3 pb-lg-0">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon-email">
+                        <span class="fas fa-at"></span>
+                    </span>
+                </div>
+                {{ form_widget(form.email, {'attr': {'class':'form-control','aria-describedby':'basic-addon-email','placeholder':'Email de contact','v-model':'email'}})
+                }}
+                <small class="form-text text-muted">
+                    Nous vous enverrons votre devis à cette adresse mail
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-lg-6 col-sm-12 pb-3 pb-lg-0">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon-description">
+                        <span class="fas fa-scroll"></span>
+                    </span>
+                </div>
+                {{ form_widget(form.description, {'attr': {'class':'form-control','aria-describedby':'basic-addon-description','placeholder':'Description du projet','v-model':'description'}})
+                }}
+            </div>
+            <small class="form-text text-muted">
+                Décrivez votre projet en quelques mots
+            </small>
+        </div>
+        <div class="col-lg-6 col-sm-12 pb-3 pb-lg-0">
+            <div class="row">
+                <div class="col">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon-budget-from">
+                                <span class="fas fa-euro-sign"></span>
+                            </span>
+                        </div>
+                        {{ form_widget(form.budgetFrom, {'attr': {'class':'form-control','aria-describedby':'basic-addon-budget-from','v-model':'minb'}})
+                        }}
+                        <small class="form-text text-muted">
+                            Budget minimum en euro.
+                        </small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon-budget-to">
+                                <span class="fas fa-euro-sign"></span>
+                            </span>
+                        </div>
+
+                        {{ form_widget(form.budgetTo, {'attr': {'class':'form-control','aria-describedby':'basic-addon-name','v-model':'maxb'}})
+                        }}
+                        <small class="form-text text-muted">
+                            Budget maximum en euro.
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <div class="col-lg-6 col-sm-12 pb-3 pb-lg-0">
+            {{ form_widget(form.requirements, {'attr': {'class':'form-control','rows':'3','placeholder':'Exigences', 'v-model':'requirements'}})
+            }}
+            <small class="form-text text-muted">
+                Exemple :
+                L'application doit être compatible Android & iOS.
+                Vous devrez nous livrer les fichiers sources.
+                Le rendu final doit impérativement être livré sous 30 jours.
+            </small>
+        </div>
+        <div class="col-lg-6 col-sm-12">
+            {{ form_widget(form.needs, {'attr': {'class':'form-control','rows':'3','placeholder':'Détaillez précisement vos besoins','v-model':'needs'}})
+            }}
+            <small class="form-text text-muted">
+                Ex: Notre besoin porte principalement sur la création d'une application de livraison de bouffe à
+                domicile avec possibilité de suivre en temps réel nos livreurs.
+            </small>
+        </div>
+    </div>
+</div>
+{{ form_widget(form) }}
+<button class="btn btn-success"><span class="fas fa-paper-plane"></span> Envoyer la demande</button>
+{{ form_end(form) }}
